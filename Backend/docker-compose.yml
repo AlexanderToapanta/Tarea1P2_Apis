@@ -1,0 +1,27 @@
+# ══════════════════════════════════════════════════════════════
+#  ☕  CAFETERÍA UNIVERSITARIA — Docker Compose
+#
+#  UN SOLO CONTENEDOR: PostgreSQL + Node.js API
+#
+#  Levantar:  docker-compose up --build
+#  Detener:   docker-compose down
+# ══════════════════════════════════════════════════════════════
+
+services:
+
+  cafeteria:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cafeteria_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"         # API REST
+    volumes:
+      # Datos de PostgreSQL persistentes entre reinicios
+      - pgdata:/var/lib/postgresql/data
+
+# Volumen persistente para la base de datos
+volumes:
+  pgdata:
+    driver: local

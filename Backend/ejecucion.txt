@@ -1,0 +1,8 @@
+# Levantar (doble clic en INICIAR.bat o terminal):
+docker-compose up --build
+
+# Detener:
+docker-compose down
+
+# Ver logs:
+docker logs cafeteria_app

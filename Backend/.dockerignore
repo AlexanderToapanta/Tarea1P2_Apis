@@ -1,0 +1,6 @@
+# Excluir de la imagen Docker
+node_modules
+.env
+.env.docker
+.git
+*.md
